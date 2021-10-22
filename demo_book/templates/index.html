@@ -44,6 +44,8 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
 <script>
     function deleteBook(e) {
+        //$(this).attr('id');
+        // 如果用上面那种写法，this指向的是被点击的函数，并不是a标签，所以attr取不出来自定义属性id
         let id = $("#" + e).attr("id");
         console.log(id)
     }
