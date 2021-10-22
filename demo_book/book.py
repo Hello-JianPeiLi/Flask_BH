@@ -58,6 +58,7 @@ def index():
     if request.method == 'post':
         if form.validate_on_submit():
             # 验证表单成功
+
             author_name = form.author_name.data
             book_name = form.book_name.data
             # print(author_name)
