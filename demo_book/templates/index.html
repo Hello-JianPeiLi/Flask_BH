@@ -30,13 +30,15 @@
 <hr>
 <ul>
     {% for author in authors %}
-    <li>作者：{{author.name}}</li>
+    <li>作者：{{author.name}}
+        <a href="javascript:;" author_id={{author.id}}>删除作者</a>
+    </li>
     <ul>
         {% for book in author.books %}
         <li>
             书籍：{{book.name}}
         </li>
-        <li><a href="javascript:;" id="{{book.id}}" onclick="deleteBook('{{book.id}}');">删除</a></li>
+        <li><a href="javascript:;" id="a_{{book.id}}" onclick="deleteBook('{{book.id}}');">删除</a></li>
         {% endfor %}
     </ul>
     {% endfor %}
