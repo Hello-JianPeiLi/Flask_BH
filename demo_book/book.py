@@ -7,10 +7,15 @@ import pymysql
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+from flask_script import Manager
+from flask_migrate import MigrateCommand, Migrate
 
 pymysql.install_as_MySQLdb()
 app = Flask(__name__)
 db = SQLAlchemy(app)
+manager = Manager(app)
+migrate = Migrate(app, db)
+manager.add_command('db', MigrateCommand)
 
 
 class Config(object):
@@ -109,4 +114,6 @@ if __name__ == '__main__':
     # db.session.add_all([bk_xi, bk_xi2, bk_qian, bk_san])
     # # 提交会话
     # db.session.commit()
-    app.run(debug=True)
+    # app.run(debug=True)
+
+    manager.run()
